@@ -1,0 +1,19 @@
+body{
+    font-family: 'Courier New', Courier, monospace;
+    text-align: center;
+}
+
+#retryButton {
+    display: none; 
+            
+    position: absolute;
+    margin-left: 48%;    
+    margin-top: -17%;          
+    font-size: 16px;
+    background-color: #4CAF50; 
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    z-index: 99;
+}
