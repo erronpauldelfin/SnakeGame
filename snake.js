@@ -51,6 +51,7 @@ function update() {
     if (snakeX === foodX && snakeY === foodY) {
         snakeBody.push([foodX, foodY]);
         placeFood();
+       document.getElementById("eatFood").play();
         
         if (snakeBody.length >= nextObstacleLength ) {
         placeObstacle();
@@ -89,6 +90,7 @@ function update() {
         context.font = "30px Arial";
         context.fillText("Game Over", board.width / 2 - 70, board.height / 2);
         retryButton.style.display = "block"; 
+        document.getElementById("gameOver").play();
     }
 }
 

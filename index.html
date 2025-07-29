@@ -9,7 +9,16 @@
 </head>
 <body>
     <h1>Snake</h1>
+    <div className="legend">
+       <span class="snake">Snake = Green</span><br/>
+       <span class="food">Food = Red</span><br/>
+       <span class="obstacle">Obstacles = Gray</span><br/>
+    <audio id="eatFood" src="./assets/crunchybite.ogg"></audio>
+    <audio id="gameOver" src="./assets/tribe_d.wav"></audio>
+</div>
     <canvas id="gameBoard" width="400" height="400"></canvas>
     <button id="retryButton" onclick="retryGame()" style="display: none;">Retry</button>
+
+
 </body>
 </html><!DOCTYPE html>
