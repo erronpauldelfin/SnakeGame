@@ -95,21 +95,35 @@ function update() {
 }
 
 function placeFood() {
-    foodX = Math.floor(Math.random() * cols) * blockSize;
-    foodY = Math.floor(Math.random() * rows) * blockSize;
+    let x, y;
+    let isOverlapping = true;
+
+    while (isOverlapping) {
+        x = Math.floor(Math.random() * cols) * blockSize;
+        y = Math.floor(Math.random() * rows) * blockSize;
+
+        isOverlapping =
+            obstacles.some(([ox, oy]) => ox === x && oy === y) || // don't place on obstacle
+            (x === snakeX && y === snakeY) ||                     // don't place on snake head
+            snakeBody.some(([bx, by]) => bx === x && by === y);  // don't place on snake body
+    }
+
+    foodX = x;
+    foodY = y;
 }
 
+
 function changeDirection(e) {
-    if (e.key === "ArrowUp" && velocityY !== 1) {
+    if (e.key === "ArrowUp" || e.key === "W" && velocityY !== 1) {
         velocityX = 0;
         velocityY = -1;
-    } else if (e.key === "ArrowDown" && velocityY !== -1) {
+    } else if (e.key === "ArrowDown" || e.key === "S"&& velocityY !== -1) {
         velocityX = 0;
         velocityY = 1;
-    } else if (e.key === "ArrowLeft" && velocityX !== 1) {
+    } else if (e.key === "ArrowLeft" || e.key === "A"&& velocityX !== 1) {
         velocityX = -1;
         velocityY = 0;
-    } else if (e.key === "ArrowRight" && velocityX !== -1) {
+    } else if (e.key === "ArrowRight" || e.key === "D" && velocityX !== -1) {
         velocityX = 1;
         velocityY = 0;
     }
